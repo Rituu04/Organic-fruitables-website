@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page %}active{% endblock %}
+{% block body %}
+
+
+
+        <!-- Single Page Header start -->
+        <div class="container-fluid page-header py-5">
+            <h1 class="text-center text-white display-6">Testimonial</h1>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item active text-white">Testimonial</li>
+            </ol>
+        </div>
+        <!-- Single Page Header End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-fluid testimonial py-5">
+            <div class="container py-5">
+                <div class="testimonial-header text-center">
+                    <h4 class="text-primary">Our Testimonial</h4>
+                    <h1 class="display-5 mb-5 text-dark">Our Client Saying!</h1>
+                </div>
+        
+                <div class="owl-carousel testimonial-carousel">
+        
+                    <!-- Item 1 -->
+                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
+                        <div class="position-relative">
+                            <i class="fa fa-quote-right fa-2x text-secondary position-absolute"
+                                style="bottom: 30px; right: 0;"></i>
+        
+                            <div class="mb-4 pb-4 border-bottom border-secondary">
+                                <p class="mb-0">
+                                    The variety of fruits and vegetables here is amazing! Everything is fresh, juicy, and of the highest quality. Shopping
+                                    here makes healthy eating so easy and enjoyable.
+                                </p>
+                            </div>
+        
+                            <div class="d-flex align-items-center flex-nowrap">
+                                <div class="bg-secondary rounded overflow-hidden">
+                                    <img src="{% static 'img/p-1.png' %}" class="img-fluid"
+                                        style="width:100px;height:100px;">
+                                </div>
+                                <div class="ms-4">
+                                    <h4 class="text-dark">Priya Mahta</h4>
+                                    <p class="m-0 pb-3">Satisfied Customer</p>
+                                    <div class="d-flex">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Item 2 -->
+                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
+                        <div class="position-relative">
+                            <i class="fa fa-quote-right fa-2x text-secondary position-absolute"
+                                style="bottom: 30px; right: 0;"></i>
+        
+                            <div class="mb-4 pb-4 border-bottom border-secondary">
+                                <p class="mb-0">
+                                    I always get the freshest fruits and vegetables here! 
+                                    The quality is top-notch and delivery is super quick. Highly
+                                    recommend for anyone who loves healthy, fresh produce.
+                                </p>
+                            </div>
+        
+                            <div class="d-flex align-items-center flex-nowrap">
+                                <div class="bg-secondary rounded overflow-hidden">
+                                    <img src="{% static 'img/p-2.jpg' %}" class="img-fluid"
+                                        style="width:100px;height:100px;">
+                                </div>
+                                <div class="ms-4">
+                                    <h4 class="text-dark">Priyanka Soni</h4>
+                                    <p class="m-0 pb-3">Happy Customer</p>
+                                    <div class="d-flex">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Item 3 -->
+                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
+                        <div class="position-relative">
+                            <i class="fa fa-quote-right fa-2x text-secondary position-absolute"
+                                style="bottom: 30px; right: 0;"></i>
+        
+                            <div class="mb-4 pb-4 border-bottom border-secondary">
+                                <p class="mb-0">
+                                    I love how convenient and reliable this store is! From fresh seasonal produce to quick delivery, it’s my go-to place for
+                                    all my fruit and veggie needs. The quality is always top-notch, 
+                                    and their customer service is friendly and helpful.
+                                </p>
+                            </div>
+        
+                            <div class="d-flex align-items-center flex-nowrap">
+                                <div class="bg-secondary rounded overflow-hidden">
+                                    <img src="{% static 'img/testimonial-1.jpg' %}" class="img-fluid"
+                                        style="width:100px;height:100px;">
+                                </div>
+                                <div class="ms-4">
+                                    <h4 class="text-dark">Anuradha Bhosle</h4>
+                                    <p class="m-0 pb-3">Regular Shopper</p>
+                                    <div class="d-flex">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+        
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+
+{% endblock body %}

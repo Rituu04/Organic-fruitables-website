@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block shop %}active{% endblock %}
+{% block body %}
+
+        <!-- Single Page Header start -->
+        <div class="container-fluid page-header py-5">
+            <h1 class="text-center text-white display-6">Shop</h1>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item active text-white">Shop</li>
+            </ol>
+        </div>
+        <!-- Single Page Header End -->
+
+
+        <!-- Fruits Shop Start-->
+        <div class="container fruite py-5">
+            <div class="row g-4">
+        
+                {% for i in pros %}
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm fruite-item">
+        
+                        <img src="{{ i.pimage.url }}" class="card-img-top" style="height:200px; object-fit:cover;" alt="">
+        
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">{{ i.pname }}</h5>
+                            <p class="text-desc small desc" title="{{ i.pdis }}">
+                                {{ i.pdis|slice:80 }}...
+                            </p>
+
+                        </div>
+        
+                        <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
+                            <span class="fw-bold fs-5">₹{{ i.pprice }}</span>
+                            <a href="{% url 'add_to_cart' i.pid %}" class="btn btn-outline-success btn-sm rounded-pill">
+                                <i class="fa fa-shopping-bag"></i>
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+                {% endfor %}
+        
+            </div>
+        </div>
+
+
+        
+        
+        <!-- Fruits Shop End-->
+
+
+        {% endblock body %}

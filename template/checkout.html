@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page %}active{% endblock %}
+{% block body %}
+
+        <!-- Single Page Header start -->
+        <div class="container-fluid page-header py-5">
+            <h1 class="text-center text-white display-6">Checkout</h1>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item active text-white">Checkout</li>
+            </ol>
+        </div>
+        <!-- Single Page Header End -->
+
+
+        <!-- Checkout Page Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <h1 class="mb-4">Billing details</h1>
+        
+                <form method="POST" action="{% url 'place_order' %}">
+                    {% csrf_token %}
+                    <div class="row g-5">
+        
+                        <!-- LEFT (Billing Form) -->
+                        <div class="col-md-12 col-lg-6 col-xl-7">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form-item w-100">
+                                        <label class="form-label my-3">First Name<sup>*</sup></label>
+                                        <input type="text" class="form-control" name="first_name">
+                                    </div>
+                                </div>
+        
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form-item w-100">
+                                        <label class="form-label my-3">Last Name<sup>*</sup></label>
+                                        <input type="text" class="form-control" name="last_name">
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="form-item">
+                                <label class="form-label my-3">Address <sup>*</sup></label>
+                                <input type="text" class="form-control" placeholder="House Number Street Name" name="address">
+                            </div>
+                            <div class="form-item">
+                                <label class="form-label my-3">City<sup>*</sup></label>
+                                <input type="text" class="form-control" name="city">
+                            </div>
+                            <div class="form-item">
+                                <label class="form-label my-3">Country<sup>*</sup></label>
+                                <input type="text" class="form-control" name="country">
+                            </div>
+                            <div class="form-item">
+                                <label class="form-label my-3">Pincode<sup>*</sup></label>
+                                <input type="text" class="form-control" name="pincode">
+                            </div>
+                            <div class="form-item">
+                                <label class="form-label my-3">Mobile<sup>*</sup></label>
+                                <input type="tel" class="form-control" name="mobile">
+                            </div>
+                            <div class="form-item">
+                                <label class="form-label my-3">Email Address<sup>*</sup></label>
+                                <input type="email" class="form-control" name="email">
+                            </div>
+
+                            <div class="form-item">
+                                <textarea class="form-control" cols="30" rows="5"
+                                    placeholder="Order Notes (Optional)" name="notes"></textarea>
+                            </div>
+        
+                        </div>
+        
+                        <!-- RIGHT (Order Summary) -->
+                        <div class="col-md-12 col-lg-6 col-xl-5">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Products</th>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Qty</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                
+                                    <tbody>
+                                
+                                        {% for item in cart %}
+                                        <tr>
+                                            <td><img src="{{ item.product.pimage.url }}" width="70"></td>
+                                            <td>{{ item.product.pname }}</td>
+                                            <td>₹{{ item.product.pprice }}</td>
+                                            <td>{{ item.quantity }}</td>
+                                            <td>₹{{ item.subtotal }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                
+                                        <!-- Subtotal -->
+                                        <tr>
+                                            <td></td>
+                                            <td colspan="3" class="text-end"><strong>Subtotal</strong></td>
+                                            <td><strong>₹{{ total }}</strong></td>
+                                        </tr>
+                                
+                                        <!-- Shipping -->
+                                        <tr>
+                                            <td></td>
+                                            <td colspan="3" class="text-end"><strong>Shipping</strong></td>
+                                            <td>₹50 (Flat Rate)</td>
+                                        </tr>
+                                
+                                        <!-- Total -->
+                                        <tr>
+                                            <td></td>
+                                            <td colspan="3" class="text-end"><strong>Total</strong></td>
+                                            <td><strong>₹{{ total|add:'50' }}</strong></td>
+                                        </tr>
+                                
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="border p-3 mb-3">
+                            <h5 class="mb-3">Select Payment Method</h5>
+                            
+                            <label>
+                                <input type="radio" name="payment_method" value="Cash on Delivery" required>
+                                Cash on Delivery
+                            </label><br>
+                            
+                            <label>
+                                <input type="radio" name="payment_method" value="Card Payment">
+                                Debit/Credit Card
+                            </label><br>
+                            
+                            <label>
+                                <input type="radio" name="payment_method" value="UPI / GPay">
+                                UPI / GPay
+                            </label><br>
+                            
+                            <label>
+                                <input type="radio" name="payment_method" value="Net Banking">
+                                Net Banking
+                            </label><br><br>
+
+                            </div>
+
+        
+                            <div class="row g-4 text-center align-items-center justify-content-center pt-4">
+                                <button type="submit" class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">
+                                    Place Order
+                                </button>
+                            </div>
+        
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Checkout Page End -->
+
+
+
+{% endblock body %}

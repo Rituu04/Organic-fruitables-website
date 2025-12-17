@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<br><br>
+<div class="container-fluid contact py-6">
+  <div class="container py-5">
+    <div class="p-5 bg-light rounded">
+      <div class="row g-4">
+  
+        <div class="col-md-4 offset-md-4 pb-4">
+
+          <form action="/login/" method="post">
+            {% csrf_token %}
+            <center><h4>LOGIN HERE</h4></center>
+            <div class="form-group">
+              <label class="text-black" for="uname">Username</label>
+              <input type="text" class="form-control" id="uname" name="uname">
+            </div>
+          
+            <div class="form-group">
+             <label class="text-black" for="pass">Password</label>
+              <input type="password" class="form-control" id="pass" name="pass1">
+            </div>
+            <br>
+            <center><button type="submit" class="btn btn-dark px-4 py-2" style="border-radius: 25px; font-weight:600;">
+              Login
+            </button></center>
+          </form>
+            <br>
+            <h6>Don't have an account ?? <a href="/register/">Click here</a></h6>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
